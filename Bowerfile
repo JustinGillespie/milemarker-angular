@@ -1,8 +1,8 @@
 
 group :vendor, :assets_path => "assets/javascripts"  do
-  asset "angular"
+	asset "angular"
 end
 
 group :vendor, :assets_path => "assets/stylesheets"  do
-  asset "normalize.css"
+	asset "normalize.css"
 end
