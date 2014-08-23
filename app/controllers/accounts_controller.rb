@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-
+  before_action :super, except: [:new, :create]
+  
   layout "public", only: [:new, :create]
 
   # GET /accounts

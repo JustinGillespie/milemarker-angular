@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
 	  redirect_to login_path if current_user.nil? or current_user.account.slug != request.subdomain
 	end
 
+	def super
+		redirect_to login_path if current_user.nil? or current_user.role != 0
+	end
+
+
 	helper_method :account
 
 	def account
