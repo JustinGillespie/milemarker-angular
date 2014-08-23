@@ -1,0 +1,2 @@
+assets_path "assets/javascripts"
+asset 'angular'
