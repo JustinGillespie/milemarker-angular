@@ -1,2 +1,8 @@
-assets_path "assets/javascripts"
-asset 'angular'
+
+group :vendor, :assets_path => "assets/javascripts"  do
+  asset "angular"
+end
+
+group :vendor, :assets_path => "assets/stylesheets"  do
+  asset "normalize.css"
+end
