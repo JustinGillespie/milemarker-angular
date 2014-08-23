@@ -1,6 +1,6 @@
 <%= form_for(@account) do |f| %>
 
-  <% if @account.errors.any? or @user.errors.any? %>
+  <% if @account.errors.any? or (@user and @user.errors.any?) %>
     <div class="form-errors">
       <h2><%= pluralize(@account.errors.count + @user.errors.count, "error") %> prohibited this account from being saved:</h2>
 
@@ -8,10 +8,13 @@
         <% @account.errors.full_messages.each do |msg| %>
           <%= content_tag(:li, msg) %>
         <% end %>
-
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        
+        <% if @user %>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         <% end %>
+        
       </ul>
     </div> <!-- end error-messages -->
   <% end %>
@@ -25,26 +28,28 @@
     <%= f.label :slug %><br>
     <%= f.text_field :slug %>
   </div>
+  
+  <% if @user %>
+    <%= fields_for @user, :validate => true do |u| %>
 
-  <%= fields_for @user, :validate => true do |u| %>
+      <h3 class="strong">Your Information</h3>
 
-    <h3 class="strong">Your Information</h3>
+      <p class="field">
+        <%= u.label :email %>
+        <%= u.text_field :email %>
+      </p>
 
-    <p class="field">
-      <%= u.label :email %>
-      <%= u.text_field :email %>
-    </p>
+      <p class="field">
+        <%= u.label :password %>
+        <%= u.password_field :password %>
+      </p>
 
-    <p class="field">
-      <%= u.label :password %>
-      <%= u.password_field :password %>
-    </p>
+      <p class="field">
+        <%= u.label :password_confirmation %>
+        <%= u.password_field :password_confirmation %>
+      </p>  
 
-    <p class="field">
-      <%= u.label :password_confirmation %>
-      <%= u.password_field :password_confirmation %>
-    </p>  
-
+    <% end %>
   <% end %>
 
   <div class="actions"><%= f.submit %></div>
