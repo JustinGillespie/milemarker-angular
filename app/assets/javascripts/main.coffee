@@ -12,18 +12,20 @@ App.config ($httpProvider, $stateProvider, $urlRouterProvider) ->
 
   # Routes
 
+	$stateProvider.state "root",
+			url: ""
+			views:
+				"main":    { templateUrl: "dashboard/index.html" }
+				"sidebar": { template: "" }
+
 	$stateProvider.state "index",
 			url: "/"
 			views:
-				"projects":    { template: "" }
-				"anotherview": { template: "" }
+				"main":    { templateUrl: "dashboard/index.html" }
+				"sidebar": { template: "" }
 
-		$stateProvider.state "state1",
-			url: "/fuckyou"
+		$stateProvider.state "users",
+			url: "/team"
 			views:
-				"projects":
-					#templateUrl: "projects/index.html"
-					template: "Sup dog."
-				"anotherview":
-					#templateUrl: "projects/show.html"
-					template: "I kill you."
+				"main":    { templateUrl: "users/index.html" }
+				"sidebar": { template: "sidebar" }

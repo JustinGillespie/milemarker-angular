@@ -17,8 +17,9 @@ class User < ActiveRecord::Base
 	def role_name
 		case self.role
 			when 0 then "super"
-			when 1 then "admin"
-			when 2 then "user"
+			when 1 then "owner"
+			when 2 then "admin"
+			when 3 then "user"
 			else "invalid"
 		end
 	end

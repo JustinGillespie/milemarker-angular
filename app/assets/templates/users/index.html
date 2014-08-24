@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<div ng-repeat="user in users">
+	<h4 ng-click="reveal = !reveal">{{ user.full_name }}</h4>
+	<div ng-show="reveal">
+		<strong>Email</strong> {{ user.email }}
+		<strong>Role</strong> {{ user.role_name }}
+	</div>
+</div>

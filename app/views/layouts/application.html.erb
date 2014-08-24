@@ -8,19 +8,26 @@
 
 <body ng-controller="ApplicationCtrl as app">
 
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", signup_url(subdomain: false) %> or
-  <%= link_to "Log In", login_path %>
-<% end %>
+<header>
+	<nav>
+		<a ui-sref="index">Dashboard</a>
+		<a ui-sref="users">Team</a>
+	</nav>
+
+	<% if current_user %>
+  	Logged in as <%= current_user.email %>.
+  	<%= link_to "Log Out", logout_path %>
+	<% else %>
+  	<%= link_to "Sign Up", signup_url(subdomain: false) %> or
+  	<%= link_to "Log In", login_path %>
+	<% end %>
+</header>
+
+<hr>
 
 <% flash.each do |name, msg| %>
 	<%= content_tag :div, msg, id: "flash_#{name}" %>
 <% end %>
-
-{{ test }} <input ng-model="test">
 
 <%= yield %>
 

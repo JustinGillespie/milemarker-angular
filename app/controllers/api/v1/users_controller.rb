@@ -3,7 +3,7 @@ module Api
     class UsersController < Api::BaseController
 			  		
   		def index
-  			@users = account.users.all
+  			@users = account.users.order(last_name: :asc)
   		end
 
 			def edit
