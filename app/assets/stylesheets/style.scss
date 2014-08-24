@@ -1,0 +1,31 @@
+
+@import "mixins";
+
+$container: 1150px;
+
+*, *:after, *:before { @include border-box() }
+
+html { background: #f3f5f8; }
+
+header { margin-bottom: 20px; padding: 20px;  }
+header nav { max-width: $container; margin: 0 auto; }
+header nav a {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.container { 
+	@include box-shadow(1px, 1px, 1px, #ddd);
+	background: white;
+ 	max-width: $container; 
+ 	margin: 0 auto;
+ 	padding: 20px;
+
+  & > div > h1 { margin-top: 0;  }
+  & > div > p:last-child { margin-bottom: 0; }
+ }
+
+
+// type
+
+h1 {  font-size: 26px; }

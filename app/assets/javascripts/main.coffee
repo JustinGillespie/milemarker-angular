@@ -13,19 +13,29 @@ App.config ($httpProvider, $stateProvider, $urlRouterProvider) ->
   # Routes
 
 	$stateProvider.state "root",
-			url: ""
-			views:
-				"main":    { templateUrl: "dashboard/index.html" }
-				"sidebar": { template: "" }
+		url: ""
+		views:
+			"main":    { templateUrl: "dashboard/index.html" }
+			"sidebar": { template: "" }
 
 	$stateProvider.state "index",
-			url: "/"
-			views:
-				"main":    { templateUrl: "dashboard/index.html" }
-				"sidebar": { template: "" }
+		url: "/"
+		views:
+			"main":    { templateUrl: "dashboard/index.html" }
+			"sidebar": { template: "" }
 
-		$stateProvider.state "users",
-			url: "/team"
-			views:
-				"main":    { templateUrl: "users/index.html" }
-				"sidebar": { template: "sidebar" }
+	$stateProvider.state "users",
+		url: "/team"
+		views:
+			"main":    { templateUrl: "users/index.html" }
+			"sidebar": { template: "users sidebar" }
+
+	$stateProvider.state "projects",
+		url: "/projects"
+		views:
+			"main":    { templateUrl: "projects/index.html" }
+
+	$stateProvider.state "projects/new",
+		url: "/projects/new"
+		views:
+			"main":    { templateUrl: "projects/new.html" }

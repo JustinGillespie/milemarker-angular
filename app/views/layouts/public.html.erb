@@ -3,16 +3,26 @@
 <head>
   <title>Milemarker</title>
   <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<header>
+		<nav>
+			<%= link_to "Sign Up", signup_url(subdomain: false) %>
+  		<%= link_to "Log In", login_path %>
+  	</nav>
+	</header>
 
-<% flash.each do |name, msg| %>
-	<%= content_tag :div, msg, id: "flash_#{name}" %>
-<% end %>
+	<div class="container">
+	
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, id: "flash_#{name}" %>
+		<% end %>
 
-<%= yield %>
+		<%= yield %>
+	</div> <!-- end container -->
 
+	<%= javascript_include_tag 'application' %>
 </body>
 </html>
