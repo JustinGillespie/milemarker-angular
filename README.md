@@ -3,7 +3,7 @@ Milemarker
 ========
 TODO: Something cool about the app.
 
-<a name="setup"></a>
+
 ##Setup
 * * *
 
@@ -24,4 +24,10 @@ Install dependencies via rake task.
 
 Refer to the  [Github Documentation](https://github.com/42dev/bower-rails/) for more information.
 
+### Documentation
 
+Documentation is automatically generated via rdoc, but ignored from git. To generate documentation run:
+
+    rake doc:app
+
+Which will create static HTML files in `/doc/app`.

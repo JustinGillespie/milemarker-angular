@@ -13,9 +13,10 @@
 /log/*.log
 /tmp
 
+/doc/*
 /config/database.yml
 /vendor/assets/*
-
+logfile
 
 #### OSX ####
 
