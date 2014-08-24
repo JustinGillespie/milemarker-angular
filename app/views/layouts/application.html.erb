@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="milemarker">
 <head>
   <title>Milemarker</title>
-  <%= stylesheet_link_tag    'application' %>
+  <%= stylesheet_link_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body ng-controller="ApplicationCtrl as app">
 
 <% if current_user %>
   Logged in as <%= current_user.email %>.

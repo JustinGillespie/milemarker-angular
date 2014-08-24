@@ -1,6 +1,8 @@
 
 group :vendor, :assets_path => "assets/javascripts"  do
 	asset "angular"
+	asset "restangular"
+	asset "ui-router"
 end
 
 group :vendor, :assets_path => "assets/stylesheets"  do

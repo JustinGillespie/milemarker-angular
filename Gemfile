@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 1.2'
 gem "bower-rails", "~> 0.8.3"
 gem 'jquery-rails'
+gem 'angular-rails-templates'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'capistrano-rails', group: :development

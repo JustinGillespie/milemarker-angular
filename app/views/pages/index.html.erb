@@ -2,3 +2,16 @@
 <%= current_user.account.name %>
 <%= current_user.role_name %>
 <%= current_user.full_name %>
+
+<br><br><br>
+
+<div ui-view="projects"></div>
+<div ui-view="anotherview"></div>
+
+<div ng-repeat="user in users">
+	<h4 ng-click="reveal = !reveal">{{ user.full_name }}</h4>
+	<div ng-show="reveal">
+		<strong>Email</strong> {{ user.email }}
+		<strong>Role</strong> {{ user.role_name }}
+	</div>
+</div>
