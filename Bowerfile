@@ -1,10 +1,14 @@
 
 group :vendor, :assets_path => "assets/javascripts"  do
 	asset "angular"
-	asset "restangular"
-	asset "ui-router"
+	asset "angular-resource"
+	asset "angular-ui-router"
+	asset "angular-animate"
+	asset "danialfarid-angular-file-upload"
 end
 
 group :vendor, :assets_path => "assets/stylesheets"  do
 	asset "normalize.css"
+	asset "fontawesome"
+	asset "font-awesome-animation"
 end

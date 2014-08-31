@@ -1,6 +1,8 @@
 
 # Main Application Controller
 
-App.controller 'ApplicationCtrl', ['$scope', '$window', 'UserService', ($scope, $window, User) ->	
-	User.getList().then (users) -> $scope.users = users
+App.controller 'ApplicationCtrl', ['$scope', '$window', ($scope, $window) ->
+
+	$scope.loading = false
+
 ]

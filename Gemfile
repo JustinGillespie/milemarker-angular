@@ -14,6 +14,13 @@ gem 'unicorn'
 gem 'capistrano-rails', group: :development
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# File Uploads
+
+gem "rmagick"
+gem "mini_magick"
+gem "carrierwave"
+
+
 group :development, :test do
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 	gem 'rspec-rails', '~> 3.0.0'

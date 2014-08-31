@@ -1,10 +1,12 @@
 //= require jquery
 //= require jquery_ujs
+//= require danialfarid-angular-file-upload/dist/angular-file-upload-shim.min
 //= require angular/angular.min
 //= require angular-rails-templates
-//= require lodash/dist/lodash.min
-//= require restangular/dist/restangular.min
-//= require ui-router/release/angular-ui-router.min
+//= require angular-resource/angular-resource.min
+//= require angular-ui-router/release/angular-ui-router.min
+//= require danialfarid-angular-file-upload/dist/angular-file-upload.min
+//= require angular-animate/angular-animate.min
 //= require main
 //= require_tree ./angular
 //= require_tree ../templates

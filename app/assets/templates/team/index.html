@@ -1,0 +1,41 @@
+
+<div ng-controller="UsersCtrl" ui-view ng-cloak>
+
+	<h1>Team</h1>
+
+	<p><a ng-click="userform = !userform">Create a new User</a></p>
+
+	<form ng-submit="addUser()" ng-show="userform">
+		<label>Email</label><input type="text" ng-model="user.email"><br>
+		<label>Full Name</label><input type="text" ng-model="user.full_name"><br>
+		<label>Password</label><input type="password" ng-model="user.password"><br>
+		<label>Password Confirmation</label><input type="password" ng-model="user.password_confirmation"><br>
+		<p><input type="submit" value="Create User"></p>
+	</form>
+
+	<hr>
+
+	<table class="styled">
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th>Name</th>
+				<th>Role</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users">
+				<td width="6%"><img ng-show="user.image" src="{{ user.image }}"></td>
+				<td><h4>{{ user.full_name }}</h4></td>
+				<td>{{ user.role_name }}</td>
+				<td>
+					<a ui-sref="team.view({ id: user.id })">View</a>
+					<a ng-click="removeUser($index)">Remove</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+</div> <!-- UsersCtrl -->

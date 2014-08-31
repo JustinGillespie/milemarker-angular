@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :email	
 	before_create { generate_token(:auth_token) }
 
+	mount_uploader :image, ImageUploader
+
 	def full_name
 		[ first_name, last_name ].join(' ')
 	end

@@ -12,9 +12,11 @@
 		<nav>
 			<a ui-sref="index">Dashboard</a>
 			<a ui-sref="projects">Projects</a>
-			<a ui-sref="users">Team</a>
+			<a ui-sref="team">Team</a>
 			<a href="<%= logout_path %>">Logout</a>
+			<small><a ui-sref="profile">Edit Profile</a></small>
 			<small>Logged in as <%= current_user.email %></small>
+			<div class="ajax-loader" data-loader></div>
 		</nav>
 	</header>
 
@@ -22,7 +24,7 @@
 		<%= content_tag :div, msg, id: "flash_#{name}" %>
 	<% end %>
 
-	<div class="container">
+	<div class="container" ng-hide="loading">
 		<%= yield %>
 	</div>
 

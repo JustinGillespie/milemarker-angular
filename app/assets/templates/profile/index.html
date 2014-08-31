@@ -1,0 +1,24 @@
+<div ng-controller="ProfileCtrl">
+	
+	<h1>Edit Profile</h1>
+	
+	<form ng-submit="updateUserProfile()">
+		<label>Email</label><input type="text" ng-model="user.email"><br>
+		<label>Full Name</label><input type="text" ng-model="user.full_name"><br>
+		<p><input type="submit" value="Update User"></p>
+	</form>
+
+	<br>
+
+	<h3>Profile Picture</h3>
+	<small>Click to edit</small>
+
+	<p>
+		<label>
+			<img src="{{ user.image.image.thumb.url }}">
+			<input type="file" ng-file-select="onFileSelect($files)" class="hidden">
+		</label>
+	</p>
+
+
+</div> <!-- end ProfileCtrl -->

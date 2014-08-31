@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require normalize.css/normalize
+ *= require fontawesome/css/font-awesome.min
+ *= require font-awesome-animation/dist/font-awesome-animation.min
  *= require style
  *= require_self
  */
