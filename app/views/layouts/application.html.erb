@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="milemarker">
 <head>
-  <title>Milemarker</title>
+  <title><%= CONFIG[:app_name] %></title>
   <%= stylesheet_link_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,7 +10,7 @@
 
 	<header>
 		<nav>
-			<a ui-sref="index">Dashboard</a>
+			<a ui-sref="dashboard">Dashboard</a>
 			<a ui-sref="projects">Projects</a>
 			<a ui-sref="team">Team</a>
 			<a href="<%= logout_path %>">Logout</a>

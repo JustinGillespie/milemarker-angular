@@ -3,15 +3,15 @@
 
 	<h1>Team</h1>
 
-	<p><a ng-click="userform = !userform">Create a new User</a></p>
+	<p><a ng-click="userform = !userform">{{ userform ? 'Close' : 'Create a new User' }}</a></p>
 
-	<form ng-submit="addUser()" ng-show="userform">
-		<label>Email</label><input type="text" ng-model="user.email"><br>
-		<label>Full Name</label><input type="text" ng-model="user.full_name"><br>
-		<label>Password</label><input type="password" ng-model="user.password"><br>
-		<label>Password Confirmation</label><input type="password" ng-model="user.password_confirmation"><br>
-		<p><input type="submit" value="Create User"></p>
-	</form>
+	<formset name="user_form" ng-submit="addUser(user)" ng-show="userform">
+		<field model="user.email"></field>
+		<field model="user.full_name"></field>
+		<field model="user.password" type="password"></field>
+		<field model="user.password_confirmation" type="password"></field>
+		<input type="submit" value="Submit" ng-disabled="user_form.$invalid">
+	</formset>
 
 	<hr>
 
@@ -26,16 +26,21 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="user in users">
-				<td width="6%"><img ng-show="user.image" src="{{ user.image }}"></td>
+				<td width="6%"><img ng-show="user.image" ng-src="{{ user.image }}"></td>
 				<td><h4>{{ user.full_name }}</h4></td>
 				<td>{{ user.role_name }}</td>
-				<td>
+				<td width="30%">
 					<a ui-sref="team.view({ id: user.id })">View</a>
-					<a ng-click="removeUser($index)">Remove</a>
+					<a ng-click="confirm = !confirm">Remove</a>
+					<span ng-show="confirm" class="confirm">
+						
+						<a ng-click="removeUser($index)">Confirm</a> or
+						<a ng-click="confirm = !confirm">Cancel</a>
+
+					</span>
 				</td>
 			</tr>
 		</tbody>
 	</table>
-
 
 </div> <!-- UsersCtrl -->

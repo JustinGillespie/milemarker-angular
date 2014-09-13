@@ -6,12 +6,12 @@ App.controller 'UsersCtrl', ['$scope', '$filter', '$state', 'UserService', ($sco
 
 	# Add User
 	
-	$scope.addUser = () ->
-		if $scope.user
-			User.save { user: $scope.user }, (successResponse) ->
+	$scope.addUser = (user) ->
+		if user
+			User.save { user: user }, (successResponse) ->
 				$scope.users.push(successResponse)
-				$scope.user = {}
 				sortUsers('first_name')
+				user = {}
 			, (errorResponse) ->
 				angular.forEach errorResponse.data.errors, (value, key) -> alert value
 

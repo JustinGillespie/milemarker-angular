@@ -7,11 +7,18 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
-# require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+# Load the application.yml settings into the application and create
+# a configuration constant to help keeep sensative information
+# seperated from the app. 
+
+CONFIG = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+CONFIG.merge! CONFIG.fetch(Rails.env, {})
+CONFIG.symbolize_keys!
 
 module Milemarker
   class Application < Rails::Application
@@ -27,7 +34,7 @@ module Milemarker
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.app_name = "Milemarker"
-    config.base_url = ".milemarker.dev"
+    config.app_name = CONFIG[:app_name]
+    config.base_url = ".#{CONFIG[:base_url]}"
   end
 end

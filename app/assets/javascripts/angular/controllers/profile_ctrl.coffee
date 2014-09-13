@@ -7,10 +7,6 @@ App.controller 'ProfileCtrl', ['$scope', '$upload', 'UserService', ($scope, $upl
 		User.update { id: 0, user: $scope.user }, (successResponse) ->
 			console.log(successResponse)
 
-
-	# PATCH request needs to be made
-	# Check form names
-
 	$scope.onFileSelect = ($files) ->
 		if $files and $files.length > 0
 			console.log "TEST"
@@ -27,7 +23,5 @@ App.controller 'ProfileCtrl', ['$scope', '$upload', 'UserService', ($scope, $upl
 				return
 			)
 		return
-
-
 
 ]

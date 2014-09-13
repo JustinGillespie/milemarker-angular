@@ -1,0 +1,8 @@
+
+<div class="field">
+	<ng-form name="scopedForm" novalidate>
+		<label for="{{ name }}">{{ label }}</label>
+		<input type="{{ type }}" name="{{ name }}" id="{{ name }}" ng-model="$parent.$parent[model][name]" ng-required="validate">
+		<span ng-show="scopedForm.$invalid && scopedForm.$dirty" class="validation-message">{{ label }} is required.</span>
+	</ng-form>
+</div>

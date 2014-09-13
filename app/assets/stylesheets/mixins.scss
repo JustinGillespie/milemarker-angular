@@ -33,6 +33,23 @@
   &:after { clear: both; }
 }
 
+// CSS3 Rounded Corners
+// Example: @include rounded-corners(10px)
+
+@mixin rounded-corners($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+
+  // keeps background from busting out of border
+
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+}
+
 // CSS3 Animation Transition
 // Example: @include transition('background-color 3s linear 1s')
 

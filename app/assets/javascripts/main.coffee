@@ -21,6 +21,11 @@ App.config ($httpProvider, $stateProvider) ->
 
 	# Routes
 
+	$stateProvider.state 'dashboard',
+		url: '/dashboard'
+		templateUrl: 'dashboard/index.html'
+
+
 	$stateProvider.state 'profile',
 		url: '/profile'
 		templateUrl: 'profile/index.html'
@@ -36,11 +41,6 @@ App.config ($httpProvider, $stateProvider) ->
 		templateUrl: 'team/view.html'
 		controller: ($scope, $stateParams) ->
 			$scope.showUser($stateParams.id)
-
-
-
-
-
 
 
 # Routes
