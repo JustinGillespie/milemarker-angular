@@ -1,16 +1,19 @@
 App.directive "myDraggable", [ "$document", ($document) ->
   return (scope, element, attr) ->
 
-    container = 300
-
     startX = 0
     startY = 0
 
     x = 0
     y = 0
 
-    type = null
-    width = null
+    action    = null
+    height    = null
+    width     = null
+
+    container = null
+
+    element.parent().find('img').bind 'load', () -> container = $(this).width()
 
     element.on "mousedown", (event) ->
     
@@ -19,8 +22,9 @@ App.directive "myDraggable", [ "$document", ($document) ->
       startX = event.pageX - x
       startY = event.pageY - y
 
-      type = event.target.className
-      width = element.width()
+      action = event.target.className
+      height = element.height()
+      width  = element.width()
 
       $document.on "mousemove", mousemove
       $document.on "mouseup", mouseup
@@ -29,14 +33,19 @@ App.directive "myDraggable", [ "$document", ($document) ->
 
     mousemove = (event) ->
 
-      if type == 'crop-resize'
+      if action == 'crop-resize'
         
         w = event.pageX - startX + width
+        h = event.pageY - startY + height
 
-        if w > container then w = container
-        if w < 100 then w = 100
+        output = null
 
-        element.css { height: w - x + 'px', width: w - x + 'px' } # to resize with contrains
+        if w > container and h > container then return
+        if w > container and h < container then output = container - x + 'px'
+        if h > container and w < container then output = container - y + 'px'        
+        if w < container and h < container then output = w - x + 'px'
+
+        element.css { height: output, width: output }
 
       else
 
@@ -48,12 +57,14 @@ App.directive "myDraggable", [ "$document", ($document) ->
         else
           x = (container - width)
 
-        if posy < (container - width)
+        if posy < (container - height)
           y = if posy < 0 then 0 else posy
         else
-          y = (container - width)
+          y = (container - height)
 
         element.css { top: y + "px", left: x + "px" }
+        
+        $( element.find('div')[0] ).css { backgroundPosition: ('-' + posx + 'px' + ' -' + posy + 'px') }
 
       return
 
