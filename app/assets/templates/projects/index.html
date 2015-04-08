@@ -1,3 +1,42 @@
-<h1>Projects</h1>
-<p>The projects go here.</p>
-<p><a ui-sref="projects/new">Create a new Project</a></p>
+
+<div ng-controller="ProjectsCtrl" ui-view ng-cloak>
+
+	<h1>Projects</h1>
+
+	<p><a ng-click="projectform = !projectform">{{ projectform ? 'Close' : 'Create a new Project' }}</a></p>
+
+	<formset name="project_form" ng-submit="addProject(project)" ng-show="projectform">
+		<field model="project.name"></field>
+		<field model="project.description"></field>
+		<input type="submit" value="Submit" ng-disabled="project_form.$invalid">
+	</formset>
+
+	<hr>
+
+	<table class="styled">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="project in projects">
+				<td><h4>{{ project.name }}</h4></td>
+				<td>{{ project.description }}</td>
+				<td width="30%">
+					<a ui-sref="projects.view({ id: project.id })">View</a>
+					<a ng-click="confirm = !confirm">Remove</a>
+					<span ng-show="confirm" class="confirm">
+						
+						<a ng-click="removeProject($index)">Confirm</a> or
+						<a ng-click="confirm = !confirm">Cancel</a>
+
+					</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div> <!-- UsersCtrl -->

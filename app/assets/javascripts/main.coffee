@@ -31,6 +31,18 @@ App.config ($httpProvider, $stateProvider) ->
 		templateUrl: 'profile/index.html'
 
 
+	$stateProvider.state 'projects',
+		url: '/projects'
+		templateUrl: 'projects/index.html'
+
+
+	$stateProvider.state 'projects.view',
+		url: '/:id'
+		templateUrl: 'projects/view.html'
+		controller: ($scope, $stateParams) ->
+			$scope.showProject($stateParams.id)
+
+
 	$stateProvider.state 'team',
 		url: '/team'
 		templateUrl: 'team/index.html'
@@ -41,35 +53,3 @@ App.config ($httpProvider, $stateProvider) ->
 		templateUrl: 'team/view.html'
 		controller: ($scope, $stateParams) ->
 			$scope.showUser($stateParams.id)
-
-
-# Routes
-
-#	$stateProvider.state "root",
-#    url: ""
-#    templateUrl: "dashboard/index.html"
-#
-#
-#	$stateProvider.state "index",
-#    url: "/"
-#    templateUrl: "dashboard/index.html"
-#
-#
-#	$stateProvider.state "team",
-#    url: "/team"
-#    templateUrl: "users/index.html"
-#
-#
-#  $stateProvider.state "team_details",
-#    url: "/team/:user_id"
-#    templateUrl: "users/show.html"
-#
-#
-#	$stateProvider.state "projects",
-#    url: "/projects"
-#    templateUrl: "projects/index.html"
-#
-#
-#	$stateProvider.state "projects/new",
-#    url: "/projects/new"
-#    templateUrl: "projects/new.html"
