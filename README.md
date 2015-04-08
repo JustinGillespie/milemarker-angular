@@ -1,7 +1,5 @@
 
 Milemarker
 ========
-TODO: Something cool about the app.
 
-
-[Milemarker Wiki](https://bitbucket.org/justingillespie/milemarker/wiki/)
+(In development) Project management system with a rails api endpoints and angular front-end.
